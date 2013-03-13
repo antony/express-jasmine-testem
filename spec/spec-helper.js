@@ -25,10 +25,13 @@ exports.withServer = function(callback) {
   var app, server, stopServer;
   asyncSpecWait();
   app = require("../app.js").app;
+  app.standalone = false;
+
   stopServer = function() {
     server.close();
     return asyncSpecDone();
   };
+
   server = app.listen(3000);
   return callback(new Requester, stopServer);
 };
