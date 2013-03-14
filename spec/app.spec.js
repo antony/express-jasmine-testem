@@ -15,7 +15,7 @@ describe("App", function() {
     return it("has the correct body", function() {
       return helper.withServer(function(r, done) {
         return r.get("/", function(err, res, body) {
-          expect(body).toEqual("Hello, world!");
+          expect(body).toEqual("<!doctype html>\n<h1>Hello.</h1>");
           return done();
         });
       });
